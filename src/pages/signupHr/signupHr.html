@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="addForm" (ngSubmit)="doSignup()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input type="email" formControlName="UserName" name="UserName" required></ion-input>
+      </ion-item>
+        <div class="adduser-form" *ngIf="(((addForm.get('UserName').invalid) && (!addForm.get('UserName').errors?.pattern)) && (addForm.get('UserName').touched || addForm.get('UserName').dirty))"> Email Address is required. </div>
+        <div class="adduser-form" *ngIf="addForm.get('UserName').errors?.pattern"> Email Address is invalid. </div>
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password" formControlName="Password" name="Password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>First name</ion-label>
+        <ion-input type="text" formControlName="FirstName" name="FirstName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Last name</ion-label>
+        <ion-input type="text" formControlName="LastName" name="LastName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Location</ion-label>
+        <ion-input type="text" formControlName="Location" name="Location"></ion-input>
+      </ion-item>
+      <div padding>
+        <button ion-button block color="primary"  [disabled]="!addForm.valid">Sign Up</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

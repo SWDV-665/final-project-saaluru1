@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>List of Applied Users</ion-title>
+
+   <!--  <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Search by first name"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems">
+      <button ion-item>
+          <h2>{{item.FirstName}} {{item.LastName}}, {{item.UserName}}</h2>
+          <p>Job : {{item.JobTitle}}, {{item.Location}}</p>
+      </button>
+
+      <ion-item-options>
+        <button ion-button color="blue" (click)="contact(item)">
+          Contact
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Job</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span color="primary" showWhen="ios">
+          Cancel
+        </span>
+        <ion-icon name="md-close" showWhen="core,android,windows,ios"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
+        <span color="primary" showWhen="ios">
+          Done
+        </span>
+        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
+     <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="Title" formControlName="JobTitle"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Description" formControlName="JobDescription"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Location" formControlName="Location"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Skills" formControlName="Skills"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Salary" formControlName="Salary"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="No# Of Openings" formControlName="NoOfOpening"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
